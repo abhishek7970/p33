@@ -57,4 +57,4 @@
 			resource="in/co/rays/project_3/hbm/EmployeeDTO.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>
-ye meri hibernate file chake kro
+<!-- ye meri hibernate file chake kro -->
