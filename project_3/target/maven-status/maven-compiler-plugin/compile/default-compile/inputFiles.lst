@@ -9,8 +9,10 @@ D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\model\FacultyMo
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\model\StockPurchaseModelJDBCImpl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\GetMarksheetCtl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\TimeTableCtl.java
+D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\ReviewCtl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\util\HibDataSource.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\model\FacultyModelJDBCImpl.java
+D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\dto\ReviewDTO.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\model\StudentModelInt.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\util\EmailMessage.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\model\EmployeeModelHibImp.java
@@ -66,6 +68,7 @@ D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\Stoc
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\FacultyCtl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\model\CollegeModelJDBCImpl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\util\HTMLUtility.java
+D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\model\ReviewModelHibImp.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\util\JDBCDataSource.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\ForgetPasswordCtl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\dto\FacultyDTO.java
@@ -90,10 +93,12 @@ D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\Stud
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\StudentCtl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\dto\DropdownList.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\test\FacultyModelTest.java
+D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\model\ReviewModel.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\model\TimetableModelHibImp.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\SubjectListCtl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\UserCtl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\exception\RecordNotFoundException.java
+D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\ReviewListCtl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\controller\ErrorCtl.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\dto\TimetableDTO.java
 D:\pro-03\Project03\project_3\src\main\java\in\co\rays\project_3\dto\MarksheetDTO.java

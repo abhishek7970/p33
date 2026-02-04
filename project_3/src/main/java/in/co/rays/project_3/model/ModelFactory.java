@@ -190,6 +190,19 @@ public final class ModelFactory {
 
 		return subjectModel;
 	}
+	public  ReviewModel getReviewModel() {
+		 ReviewModel reviewModel = ( ReviewModel) modelCache.get(" ReviewModel");
+		if ( reviewModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				reviewModel = new ReviewModelHibImp();
+			}
+			if ("JDBC".equals(DATABASE)) {
+				reviewModel = new ReviewModelHibImp();
+			}
+			modelCache.put("reviewModel", reviewModel);
+		}
+		return reviewModel;
+	}
 
 	public FacultyModelInt getFacultyModel() {
 		FacultyModelInt facultyModel = (FacultyModelInt) modelCache.get("facultyModel");

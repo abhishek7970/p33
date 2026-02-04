@@ -12,6 +12,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.exception.JDBCConnectionException;
 
 import in.co.rays.project_3.dto.UserDTO;
 import in.co.rays.project_3.exception.ApplicationException;
@@ -60,6 +61,7 @@ public class UserModelHibImp implements UserModelInt {
 				tx.rollback();
 
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in User Add " + e.getMessage());
 		} finally {
 			session.close();
@@ -146,6 +148,7 @@ public class UserModelHibImp implements UserModelInt {
 			}
 		} catch (HibernateException e) {
 			e.printStackTrace();
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in getting User by Login " + e.getMessage());
 
 		} finally {
@@ -253,17 +256,35 @@ public class UserModelHibImp implements UserModelInt {
 		System.out.println(login + "kkkkk" + password);
 		Session session = null;
 		UserDTO dto = null;
-		session = HibDataSource.getSession();
-		Query q = session.createQuery("from UserDTO where login=? and password=?");
-		q.setString(0, login);
-		q.setString(1, password);
-		List list = q.list();
-		if (list.size() > 0) {
-			dto = (UserDTO) list.get(0);
-		} else {
-			dto = null;
+		try {
 
+			session = HibDataSource.getSession();
+
+			Query q = session.createQuery("from UserDTO where login=? and password=?");
+
+			q.setString(0, login);
+			q.setString(1, password);
+
+			List list = q.list();
+
+			if (list.size() > 0) {
+				dto = (UserDTO) list.get(0);
+			}
+
+		} catch (JDBCConnectionException e) {
+
+			System.out.println(" Database connection problem");
+			e.printStackTrace();
+
+			HibDataSource.handleException(e);
+			
+		} finally {
+
+			if (session != null) {
+				session.close();
+			}
 		}
+
 		return dto;
 	}
 

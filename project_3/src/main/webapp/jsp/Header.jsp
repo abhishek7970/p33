@@ -240,6 +240,20 @@
 							class="dropdown-item" href="<%=ORSView.STOCK_PURCHASE_LIST_CTL%>"><i
 							class="fa fa-user-friends"></i>Stock Purchase List</a>
 					</div></li>
+					
+				<%-- 	<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Review
+							</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.REVIEW_CTL%>"><i
+							class="fa fa-user-circle"></i>Add Review</a> <a
+							class="dropdown-item" href="<%=ORSView.REVIEW_LIST_CTL%>"><i
+							class="fa fa-user-friends"></i>Review List</a>
+					</div></li> --%>
+					
 
 				<li class="nav-item dropdown" style="padding-left: 5px;"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"

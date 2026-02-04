@@ -25,6 +25,7 @@ in\co\rays\project_3\model\EmployeeModelInt.class
 in\co\rays\project_3\util\HibDataSource.class
 in\co\rays\project_3\test\FacultyModelTest.class
 in\co\rays\project_3\controller\StockPurchaseListCtl.class
+in\co\rays\project_3\controller\ReviewCtl.class
 in\co\rays\project_3\dto\RoleDTO.class
 in\co\rays\project_3\model\MarksheetModelJDBCImpl.class
 in\co\rays\project_3\controller\SubjectCtl.class
@@ -66,8 +67,10 @@ in\co\rays\project_3\util\DataUtility.class
 in\co\rays\project_3\model\UserModelHibImp.class
 in\co\rays\project_3\util\PropertyReader.class
 in\co\rays\project_3\controller\StockPurchaseCtl.class
+in\co\rays\project_3\model\ReviewModelHibImp.class
 in\co\rays\project_3\model\UserModelInt.class
 in\co\rays\project_3\controller\UserCtl.class
+in\co\rays\project_3\model\ReviewModel.class
 in\co\rays\project_3\model\RoleModelJDBCImpl.class
 in\co\rays\project_3\model\RoleModelInt.class
 in\co\rays\project_3\model\StockPurchaseModelHibImp.class
@@ -76,6 +79,7 @@ in\co\rays\project_3\controller\MarksheetListCtl.class
 in\co\rays\project_3\exception\RecordNotFoundException.class
 in\co\rays\project_3\util\HTMLUtility.class
 in\co\rays\project_3\controller\TimeTableCtl.class
+in\co\rays\project_3\controller\ReviewListCtl.class
 in\co\rays\project_3\controller\StudentListCtl.class
 in\co\rays\project_3\model\ModelFactory.class
 in\co\rays\project_3\model\ProductModelInt.class
@@ -105,6 +109,7 @@ in\co\rays\project_3\test\CourseModelTest.class
 in\co\rays\project_3\model\StudentModelHibImp.class
 in\co\rays\project_3\dto\ProductDTO.class
 in\co\rays\project_3\controller\CollegeCtl.class
+in\co\rays\project_3\dto\ReviewDTO.class
 in\co\rays\project_3\dto\MarksheetDTO.class
 in\co\rays\project_3\model\StudentModelInt.class
 in\co\rays\project_3\controller\LoginCtl.class
