@@ -34,6 +34,7 @@ public class StockPurchaseModelHibImp implements StockPurchaseModelInt {
 				tx.rollback();
 
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in Stock Purchase Add " + e.getMessage());
 		} finally {
 			session.close();

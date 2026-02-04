@@ -43,40 +43,39 @@ public class StockPurchaseCtl extends BaseCtl {
 			request.setAttribute("orderType", PropertyReader.getValue("error.require", "orderType"));
 			pass = false;
 		}
-		
+
 		return pass;
 	}
 
 	protected BaseDTO populateDTO(HttpServletRequest request) {
 		StockPurchaseDTO dto = new StockPurchaseDTO();
-		
-		
+
 		dto.setQuantity(request.getParameter("quantity"));
 		dto.setPurchasePrice(request.getParameter("purchasePrice"));
 		dto.setPurchaseDate(DataUtility.getDate(request.getParameter("purchaseDate")));
 		dto.setOrderType(request.getParameter("orderType"));
-		
+
 		System.out.println("syso===>" + request.getParameter("quantity"));
-		System.out.println("syso===>" +request.getParameter("city"));
-		System.out.println("syso===>" +request.getParameter("address"));
-		System.out.println("syso===>" +request.getParameter("state"));
-		System.out.println("syso===>" +request.getParameter("mobileNo"));
-		
-				
-		populateBean(dto,request);
+		System.out.println("syso===>" + request.getParameter("city"));
+		System.out.println("syso===>" + request.getParameter("address"));
+		System.out.println("syso===>" + request.getParameter("state"));
+		System.out.println("syso===>" + request.getParameter("mobileNo"));
+
+		populateBean(dto, request);
 		return dto;
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
 		String op = request.getParameter("operation");
 		long id = DataUtility.getLong(request.getParameter("id"));
-		StockPurchaseModelInt model=ModelFactory.getInstance().getStockPurchaseModel();
+		StockPurchaseModelInt model = ModelFactory.getInstance().getStockPurchaseModel();
 		if (id > 0 || op != null) {
 			StockPurchaseDTO dto;
 			try {
-			  dto=model.findByPK(id);
-			  ServletUtility.setDto(dto, request);
-				
+				dto = model.findByPK(id);
+				ServletUtility.setDto(dto, request);
+
 			} catch (ApplicationException e) {
 				log.error(e);
 				ServletUtility.handleException(e, request, response);
@@ -87,44 +86,45 @@ public class StockPurchaseCtl extends BaseCtl {
 		ServletUtility.forward(getView(), request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-       
-		String op=request.getParameter("operation");
-       long id=DataUtility.getLong(request.getParameter("id"));
-  
-       StockPurchaseModelInt model=ModelFactory.getInstance().getStockPurchaseModel();
-       
-       if (OP_SAVE.equalsIgnoreCase(op)||OP_UPDATE.equalsIgnoreCase(op)) {
-    	   
-    	   StockPurchaseDTO dto = (StockPurchaseDTO) populateDTO(request);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
 
-    	   try {
+		String op = request.getParameter("operation");
+		long id = DataUtility.getLong(request.getParameter("id"));
+
+		StockPurchaseModelInt model = ModelFactory.getInstance().getStockPurchaseModel();
+
+		if (OP_SAVE.equalsIgnoreCase(op) || OP_UPDATE.equalsIgnoreCase(op)) {
+
+			StockPurchaseDTO dto = (StockPurchaseDTO) populateDTO(request);
+
+			try {
 				if (id > 0) {
 					dto.setId(id);
 					model.update(dto);
 					ServletUtility.setDto(dto, request);
-					
+
 					ServletUtility.setSuccessMessage("Record Successfully Updated", request);
 
 				} else {
 					System.out.println("StockPurchase add" + dto + "id...." + id);
-					//long pk 
-							model.add(dto);
+					// long pk
+					model.add(dto);
 					ServletUtility.setSuccessMessage("Record Successfully Saved", request);
 				}
 				ServletUtility.setDto(dto, request);
 			} catch (ApplicationException e) {
-				e.printStackTrace();
-				log.error(e);
-				ServletUtility.handleException(e, request, response);
+
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 				return;
 			} catch (DuplicateRecordException e) {
 				ServletUtility.setDto(dto, request);
 				ServletUtility.setErrorMessage("StockPurchaseDTO Already Exists", request);
-			} 
+			}
 		} else if (OP_RESET.equalsIgnoreCase(op)) {
 			ServletUtility.redirect(ORSView.STOCK_PURCHASE_CTL, request, response);
-				return;
+			return;
 		} else if (OP_CANCEL.equalsIgnoreCase(op)) {
 
 			ServletUtility.redirect(ORSView.STOCK_PURCHASE_LIST_CTL, request, response);
