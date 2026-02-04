@@ -114,9 +114,8 @@ public class StockPurchaseCtl extends BaseCtl {
 				}
 				ServletUtility.setDto(dto, request);
 			} catch (ApplicationException e) {
-
-				ServletUtility.setErrorMessage(e.getMessage(), request);
-				ServletUtility.forward(getView(), request, response);
+				ServletUtility.handleException(e, request, response);
+				//ServletUtility.forward(getView(), request, response);
 				return;
 			} catch (DuplicateRecordException e) {
 				ServletUtility.setDto(dto, request);

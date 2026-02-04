@@ -52,7 +52,9 @@ public class UserCtl extends BaseCtl {
 			
 			request.setAttribute("roleList", list);
 
-		} catch (Exception e) {
+		} catch (ApplicationException e) {
+			ServletUtility.setErrorMessage("Database server down!!!", request);
+
 			e.printStackTrace();
 		}
 
@@ -192,7 +194,7 @@ public class UserCtl extends BaseCtl {
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
-			} catch (Exception e) {
+			} catch (ApplicationException e) {
 				e.printStackTrace();
 				log.error(e);
 				ServletUtility.handleException(e, request, response);
