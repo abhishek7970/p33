@@ -9,7 +9,6 @@ import org.hibernate.cfg.Configuration;
 /**
  * Hibernate DataSource is provides the object of session factory and session
  * 
- * 
  * @author Abhishek yadav
  *
  */
@@ -25,9 +24,9 @@ public class HibDataSource {
                 jdbcUrl = rb.getString("url");
             }
            
-            
             sessionFactory = new Configuration().configure()
-            		.setProperty("hibernate.connection.url", jdbcUrl).buildSessionFactory();		}
+            		.setProperty("hibernate.connection.url", jdbcUrl).buildSessionFactory();		
+        }
 		return sessionFactory;
 	}
 
@@ -38,12 +37,23 @@ public class HibDataSource {
 
 	}
 	
-	
-
 	public static void closeSession(Session session) {
 
 		if (session != null) {
 			session.close();
 		}
+	}
+
+    // ----------- YE METHOD ADD KIYA -----------
+	public static void handleException(Exception e) {
+		try {
+			Session session = getSession();
+			if (session.getTransaction() != null) {
+				session.getTransaction().rollback();
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		e.printStackTrace();
 	}
 }
